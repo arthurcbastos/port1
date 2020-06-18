@@ -1,0 +1,283 @@
+/*@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);*/
+
+* {
+    margin: 0;
+    /* A propriedade margin do CSS define a área de margem nos quatro lados do elemento. 
+    É uma abreviação que define todas as margens individuais de uma só vez: margin-top, margin-right, margin-bottom, e margin-left. */
+    /* Valores globais   margin: inherit;
+margin: initial;
+margin: unset;*/
+    padding: 0;
+    /*A propriedade padding define uma a distância entre o conteúdo de um elemento e suas bordas. É um atalho que evita definir uma distância para cada lado separadamente
+     (padding-top, padding-right, padding-bottom, padding-left).*/
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    /*O módulo de layout de caixa flexível facilita o design da estrutura de
+     layout responsivo flexível sem o uso de flutuação ou posicionamento.*/
+    justify-content: center;
+    /*A justify-contentpropriedade alinha os itens do contêiner flexível 
+    quando os itens não usam todo o espaço disponível no eixo principal (horizontalmente).*/
+    align-items: center;
+    /*A align-itemspropriedade especifica o alinhamento padrão para itens dentro do contêiner flexível.*/
+    min-height: 100vh;
+    /*A medida vh é igual a 1/100 da altura da viewport. 
+    Então, por exemplo, se a altura do navegador é 900px, 1vh equivale a 9px e, 
+    analogamente, se a largura da viewport é 750px, 1vw equivale a 7.5px.*/
+    background: url(../img/buzz3.jpg);
+}
+
+
+/*Box Produto*/
+
+.container {
+    position: relative;
+    /*Definir as propriedades superior, direita, inferior e esquerda de um elemento relativamente posicionado fará com que ele seja ajustado para longe de sua posição normal. 
+    Outro conteúdo não será ajustado para caber em qualquer espaço deixado pelo elemento.*/
+}
+
+.container .card {
+    position: relative;
+    width: 320px;
+    /*Define e largura do elemento*/
+    height: 450px;
+    /*Define a altura do elemento*/
+    background: #8A2BE2;
+    /*Define o fundo do Elemento*/
+    overflow: hidden;
+    /*A overflowpropriedade CSS controla o que acontece com o conteúdo que é muito grande para caber em uma área.
+    Com o hiddenvalor, o excesso é cortado e o restante do conteúdo é oculto:*/
+}
+
+.container .card:before {
+    /*O ::before seletor insere algo antes do conteúdo de cada elemento selecionado.*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #25F53A;
+    clip-path: circle(150px at 80% 20%);
+    /*A clip-pathpropriedade permite recortar um elemento em uma forma básica ou em uma fonte SVG.*/
+    transition: 0.5s ease-in-out;
+    /*As transições CSS permitem alterar os valores das propriedades sem problemas, por um determinado período.
+     ease-in - especifica um efeito de transição com um início lento
+ease-out - especifica um efeito de transição com um final lento*/
+}
+
+.container .card:hover:before {
+    clip-path: circle(300px at 80% -20%);
+}
+
+.container .card:after {
+    content: 'Vans';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.09);
+}
+
+.container .card .imgbox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transform: 0.5s;
+}
+
+.container .card:hover .imgbox {
+    top: 0%;
+    transform: translateY(0%);
+}
+
+.container .card .imgbox img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%) rotate(25deg);
+    width: 270px;
+}
+
+.container .card .conteudobx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10;
+}
+
+.container .card:hover .conteudobx {
+    height: 210px;
+}
+
+.container .card .conteudobx h2 {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #25F53A;
+}
+
+.container .card .conteudobx .tamanho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card:hover .conteudobx .tamanho {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.5s;
+}
+
+.container .card .conteudobx .tamanho h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .conteudobx .tamanho span {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container .card .conteudobx .tamanho span:hover {
+    background: #8A2BE2;
+    color: #fff;
+}
+
+.container .card .conteudobx .cor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .card:hover .conteudobx .cor {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.container .card .conteudobx .cor h3 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container .card .conteudobx .cor span {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.container .card .conteudobx .cor span:nth-child(1) {
+    background: #fff;
+}
+
+.container .card .conteudobx .cor span:nth-child(2) {
+    background: #25F53A;
+}
+
+.container .card .conteudobx a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #25F53A;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #8A2BE2;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .card:hover .conteudobx a {
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s;
+}
+
+
+/*Box marketing*/
+
+.container2 .card {
+    margin-left: 35px;
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #8A2BE2;
+    overflow: hidden;
+}
+
+.container2 .card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #25F53A;
+    clip-path: circle(150px at 80% 20%);
+}
+
+.container2 .card .imgbox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transform: 0.5s;
+}
+
+.container2 .card .imgbox img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding-left: 100px;
+    transform: translate(-60%, -60%);
+    width: 270px;
+}
+
+.imgboxfoto1 img {
+    margin: 270px auto;
+    padding-left: 30px;
+    width: 270px;
+}
